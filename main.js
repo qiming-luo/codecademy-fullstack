@@ -24,10 +24,13 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+
 // validate single card
 function validateCred(card){
-    //reverse card to create a new arr
-    let cardReversed = card.reverse();
+    //create a new arr and reverse
+    let cardReversed = [...card];
+    cardReversed.reverse();
+
     // calculate sum
     let sum = 0;
     for(let i=0; i<cardReversed.length; i++){
@@ -41,6 +44,7 @@ function validateCred(card){
             }
         }
     }
+
     // check if sum%10 === 0
     if(sum%10 === 0){
         return true;
@@ -49,7 +53,80 @@ function validateCred(card){
     }
 }
 
-//validateCred(valid1)
+// find invalid cards
+function findInvalidCards(cardList){
+    let invalidCards = [];
+    cardList.forEach(val => {
+        if(validateCred(val) === false){
+            invalidCards.push(val);
+        }
+    })
+    return invalidCards;
+}
+
+// idInvalidCardCompanies
+function idInvalidCardCompanies(invalidList){
+    let companyIdentifier = [3,4,5,6];
+    let digitInvalid = invalidList.map(val => val[0]);
+    let companiesInvalid = [];
+
+    // add Company not found
+    digitInvalid.forEach(digit => {
+        if(companyIdentifier.includes(digit) === false){
+            companiesInvalid.push('Company not found');
+        }
+    })
+
+    // add companies
+    if(digitInvalid.includes(3)){
+        companiesInvalid.push('Amex');
+    }
+
+    if(digitInvalid.includes(4)){
+        companiesInvalid.push('Visa');
+    }
+
+    if(digitInvalid.includes(5)){
+        companiesInvalid.push('Mastercard');
+    }
+
+    if(digitInvalid.includes(6)){
+        companiesInvalid.push('Discover');
+    }
+    
+    //return result
+    return companiesInvalid;
+}
+
+/*
+// test 
+const allvalid = [valid1,valid2,valid3,valid4,valid5]
+const allinvalid = [invalid1,invalid2,invalid3,invalid4,invalid5]
+const allmys = [mystery1,mystery2,mystery3,mystery4,mystery5]
+console.log(validateCred(valid1),validateCred(valid2),validateCred(valid3),validateCred(valid4),validateCred(valid5));
+console.log(validateCred(invalid1),validateCred(invalid2),validateCred(invalid3),validateCred(invalid4),validateCred(invalid5));
+console.log(validateCred(mystery1),validateCred(mystery2),validateCred(mystery3),validateCred(mystery4),validateCred(mystery5))
+// validateCred() pass
+
+console.log('\n')
+console.log(findInvalidCards(allvalid));
+console.log(findInvalidCards(allinvalid));
+console.log(findInvalidCards(allmys));
+console.log(findInvalidCards(batch));
+//findInvalidCards() pass
+
+console.log('\n')
+let list1 = findInvalidCards(allinvalid);
+let listall = findInvalidCards(batch);
+console.log(idInvalidCardCompanies(list1));
+console.log(idInvalidCardCompanies(listall)); 
+// idInvalidCardCompanies() pass
+
+*/
+
+
+
+
 
 
 
