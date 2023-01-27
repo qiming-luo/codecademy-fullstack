@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"> 
+    <title>codecademy-BuildYourOwnCheatSheet</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">css reference</h1>
+    </header>
+    <main>
+        <!--css-selectors-->
+        <table class="css-selector">
+            <caption>
+                <h2>css selecors combination</h2>
+            </caption>
+            <tr class="thead-row">
+                <th>name</th>
+                <th>example</th>
+                <th>explanation</th>
+            </tr>
+            <tr class="row-even">
+                <td class="name">selector chaining</td>
+                <td class="code">h1.redcolor {}</td>
+                <td>select h1 element with .redcolor class
+                    (no space between selecors)
+                </td>
+            </tr>
+            <tr class="row-odd">
+                <td class="name">descendant combinator</td>
+                <td class="code">#para .red {} </td>
+                <td>select all elements with .red class within #para element (the selectors
+                    seperated by space)
+                </td>
+            </tr>
+            <tr class="row-even">
+                <td class="name">multiple unrelated selectors</td>
+                <td class="code">.red,.green,.yellow {}</td>
+                <td>selectors seperated by comma</td>
+            </tr>
+            <tr class="row-odd">
+                <td class="name"> pseudo-class</td>
+                <td class="code">p:hover {}</td>
+                <td>set rule set when hovering on p element.
+                    similar: p:focus {}
+                </td>
+            </tr>
+        </table>
+        <p class="more-info">
+            more information, go to
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors#types_of_selectors" target="_blank">
+                MDN docs
+            </a>
+        </p>
+        
+        
+    </main>
+</body>
+</html>
